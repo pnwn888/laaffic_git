@@ -37,6 +37,8 @@ def send_sms():
     phone   = data.get('phone')
     message = data.get('message')
 
+    # убираем + если есть
+    phone = phone.lstrip('+')
     app.logger.debug(f"Received request: phone={phone}, message={message}")
 
     if not phone or not message:
